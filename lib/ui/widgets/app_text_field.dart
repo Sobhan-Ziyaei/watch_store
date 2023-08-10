@@ -1,11 +1,60 @@
 import 'package:flutter/material.dart';
-
+import 'package:watch_store/ui/components/extensions.dart';
+import 'package:watch_store/ui/constants/dimens.dart';
 
 class AppTextField extends StatelessWidget {
-  const AppTextField({Key? key}) : super(key: key);
+  final String label;
+  final String preFixLabel;
+  final String hint;
+  TextEditingController controller;
+  final Widget icon;
+  TextAlign textAlign;
+  TextInputType inputType;
+
+  AppTextField({
+    required this.label,
+    this.preFixLabel = '',
+    required this.hint,
+    required this.controller,
+    this.icon = const SizedBox(),
+    this.textAlign = TextAlign.center,
+    required this.inputType,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    Size size = MediaQuery.of(context).size;
+    return Padding(
+      padding: const EdgeInsets.all(AppDimens.medium),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          SizedBox(
+            width: size.width * 0.75,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(preFixLabel),
+                const Spacer(),
+                Text(label),
+              ],
+            ),
+          ),
+          AppDimens.large.height,
+          SizedBox(
+            height: size.height * 0.07,
+            width: size.width * 0.75,
+            child: TextField(
+              textAlign: textAlign,
+              keyboardType: inputType,
+              decoration: InputDecoration(
+                hintText: hint,
+                prefixIcon: icon,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
