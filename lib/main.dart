@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:watch_store/route/names.dart';
+import 'package:watch_store/route/routes.dart';
 import 'package:watch_store/ui/components/theme.dart';
-import 'package:watch_store/ui/screens/get_otp_screen.dart';
-import 'package:watch_store/ui/screens/register_screen.dart';
-import 'package:watch_store/ui/screens/send_otp_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +15,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: lightTheme(),
-      home: RegisterScreen(),
+      initialRoute: ScreenNames.root,
+      routes: routes,
     );
   }
 }

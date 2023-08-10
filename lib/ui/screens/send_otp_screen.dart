@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:watch_store/gen/assets.gen.dart';
+import 'package:watch_store/route/names.dart';
 import 'package:watch_store/ui/components/extensions.dart';
 import 'package:watch_store/ui/constants/dimens.dart';
 import 'package:watch_store/ui/constants/strings.dart';
@@ -30,7 +31,9 @@ class SendOtpScreen extends StatelessWidget {
               ),
               MainButton(
                 text: AppStrings.next,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, ScreenNames.getOtpScreen);
+                },
               ),
             ],
           ),
